@@ -1,0 +1,24 @@
+{% extends 'base_layout.html'%}
+{% block content %}
+
+   <h1>What's New!</h1>
+          <div class = "home">
+              {% for recipe in recipes %}
+                  <div class = "recipe">
+                      <h2><a href = "{% url 'recipes:detail' slug=recipe.slug %}">{{recipe.title}}</a></h2>
+                      <p>{{recipe.date}}</p>
+                      <p class="author">recipe by {{recipe.author.username}}</p>
+                      <p>{{recipe.snippet}}</p>
+                  </div>
+              {% endfor %}
+              {% for exercise in exercises %}
+                <div class = "recipe">
+                  <h2><a href="{% url 'exercises:detail' slug=exercise.slug %}">{{exercise.title}}</a></h2>
+                  <p>{{exercise.date}}</p>
+                  <p class="author">exercise by {{exercise.author.username}}</p>
+                  <p>{{exercise.snippet}}</p>
+                </div>
+              {% endfor %}
+          </div>
+
+{% endblock %}

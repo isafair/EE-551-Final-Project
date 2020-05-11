@@ -1,0 +1,15 @@
+{% extends 'base_layout.html'%}
+
+{% block content %}
+
+    <div class = "recipe-detail">
+        <div class = "recipe">
+            <img src = "{{recipe.thumb.url}}" width="200" height="auto">
+            <h2>{{recipe.title}}</h2>
+            <p>{{recipe.date}}</p>
+            <p>{{recipe.snippet}}</p>
+            <p>{{recipe.ingredients}}</p>
+            <p>{{recipe.directions}}</p>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'base_layout.html'%}
+
+{% block content %}
+    <h1 class="big">Enter for the good stuff!</h1>
+    <h3>Login!</h3>
+    <form class="site-form"action="{% url 'accounts:login' %}"method="post">
+        {% csrf_token %}
+        {{ form }}
+        {% if request.GET.next %}
+            <input type="hidden" name="next" value="{{ request.GET.next }}">
+        {% endif %}
+        <input type="submit" value="Login"/>
+    </form>
+    <form class="signup"action="{% url 'accounts:signup' %}">
+        <button type="submit">Signup!</button>
+    </form>
+    
+{% endblock %}
